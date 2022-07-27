@@ -69,11 +69,9 @@ export class Client<
     const _config = getRuntimeConfig(config) as ClientConfig;
     this.config = _config;
 
-    window.addEventListener('load', () => {
-      if (!this.config.instanceUrl.includes(window.location.origin)) {
-        this.initFrameConduit();
-      }
-    });
+    if (!this.config.instanceUrl.includes(window?.location?.origin)) {
+      this.initFrameConduit();
+    }
   }
 
   initFrameConduit() {
